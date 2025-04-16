@@ -1,0 +1,22 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: certs
+  namespace: flux-system
+spec:
+  interval: 5m
+  dependsOn:  # Ensure cert-manager is installed first
+    - name: cert-manager
+  sourceRef:
+    kind: GitRepository
+    name: flux-system  # Your main Flux Git repo reference
+  path: ./infra/certs
+  healthChecks:  # Optional: Verify issuers are ready
+    - apiVersion: cert-manager.io/v1
+      kind: Issuer
+      name: selfsigned-issuer
+      namespace: default
+    - apiVersion: cert-manager.io/v1
+      kind: Issuer
+      name: ca-issuer
+      namespace: default
