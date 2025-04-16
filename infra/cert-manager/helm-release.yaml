@@ -8,9 +8,9 @@ spec:
   chart:
     spec:
       chart: cert-manager
-      version: "v1.11.0"  # Match your desired version
+      version: "v1.11.0"
       sourceRef:
         kind: HelmRepository
         name: cert-manager
   values:
-    installCRDs: true  # Critical for cert-manager to work
+    installCRDs: true  # Critical!
