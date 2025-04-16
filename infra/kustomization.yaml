@@ -1,22 +1,5 @@
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-metadata:
-  name: infra
-  namespace: flux-system
-spec:
-  interval: 5m
-  dependsOn:
-    - name: cert-manager
-  sourceRef:
-    kind: GitRepository
-    name: flux-system
-  path: ./infra/certs
-  healthChecks:
-    - apiVersion: cert-manager.io/v1
-      kind: Issuer
-      name: selfsigned-issuer
-      namespace: default
-    - apiVersion: cert-manager.io/v1
-      kind: Issuer
-      name: ca-issuer
-      namespace: default
+resources:
+  - cert-manager/
+  - certs/
