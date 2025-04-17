@@ -1,16 +1,14 @@
-# cluster/cert-manager/kustomization.yaml
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: cert-manager
+  name: infrastructure
   namespace: flux-system
 spec:
   interval: 1h
-  path: ./cluster/cert-manager
+  path: ./cluster/cert-manager  # Points to dir with raw YAMLs
   prune: true
 
 ---
-
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
@@ -20,5 +18,5 @@ spec:
   interval: 5m
   path: ./cluster/certificates
   prune: true
-  dependsOn:  # Ensures cert-manager is installed first
-    - name: cert-manager
+  dependsOn:
+    - name: infrastructure
