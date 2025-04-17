@@ -6,3 +6,4 @@ bases:
 - ../../base/cert-manager
 patchesStrategicMerge:
 - helmrelease.yaml
+- certs.yaml
