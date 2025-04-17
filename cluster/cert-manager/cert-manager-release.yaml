@@ -4,17 +4,14 @@ metadata:
   name: cert-manager
   namespace: flux-system
 spec:
-  interval: 5m
+  interval: 1h
   chart:
     spec:
       chart: cert-manager
-      version: v1.7.1
+      version: "~1.13.x"  # Check latest version
       sourceRef:
         kind: HelmRepository
         name: cert-manager
         namespace: flux-system
-  install:
-    remediation:
-      retries: 3
   values:
-    installCRDs: true
+    installCRDs: true  # Critical for cert-manager to work
