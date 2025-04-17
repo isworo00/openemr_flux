@@ -5,18 +5,33 @@ C:.
 |   list.txt
 |   
 +---clusters
-|   \---my-cluster
-|       |   cert-manager-release.yaml
-|       |   cert-manager-repo.yaml
-|       |   kustomization.yaml
-|       |   
-|       \---flux-system
-|               gotk-components.yaml
-|               gotk-sync.yaml
+|   \---staging
+|           crds.yaml
+|           infrastructure.yaml
+|           sources.yaml
+|           
++---crds
+|   \---staging
+|       \---cert-manager
 |               kustomization.yaml
 |               
-\---infrastructure
-    \---certs
-            certs.yaml
-            kustomization.yaml
++---infrastructure
+|   +---base
+|   |   \---cert-manager
+|   |       |   helmrelease.yaml
+|   |       |   kustomization.yaml
+|   |       |   kustomizeconfig.yaml
+|   |       |   namespace.yaml
+|   |       |   
+|   |       \---issuers
+|   |               self-signed.yaml
+|   |               
+|   \---staging
+|       \---cert-manager
+|               helmrelease.yaml
+|               kustomization.yaml
+|               
+\---sources
+    \---helm
+            jetstack.yaml
             
