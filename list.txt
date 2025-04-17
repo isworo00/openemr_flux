@@ -1,0 +1,22 @@
+Folder PATH listing for volume Acer
+Volume serial number is 5A59-5FA8
+C:.
+|   .gitattributes
+|   list.txt
+|   
++---clusters
+|   \---my-cluster
+|       |   cert-manager-release.yaml
+|       |   cert-manager-repo.yaml
+|       |   kustomization.yaml
+|       |   
+|       \---flux-system
+|               gotk-components.yaml
+|               gotk-sync.yaml
+|               kustomization.yaml
+|               
+\---infrastructure
+    \---certs
+            certs.yaml
+            kustomization.yaml
+            
