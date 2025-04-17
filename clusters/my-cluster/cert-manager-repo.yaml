@@ -4,6 +4,6 @@ metadata:
   name: cert-manager
   namespace: flux-system
 spec:
-  interval: 1h0m
+  interval: 5m
   url: https://charts.jetstack.io
   timeout: 60s
